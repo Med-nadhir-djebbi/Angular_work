@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <h2>Calculateur TTC</h2>
+  
+    <div class="mb-3">
+      <label for="price" class="form-label">Prix unitaire HT</label>
+
+      <input id="price" type="number" min="0" class="form-control" [ngModel]="soum_lka3ba()"
+        (ngModelChange)="soum_lka3ba.set(+$event)" />
+    </div>
+
+  <div class="mb-3">
+    <label for="kadech_men_kaaba" class="form-label">Quantité</label>
+
+    <input id="kadech_men_kaaba" type="number" min="1" class="form-control" [ngModel]="kadech_men_kaaba()"
+      (ngModelChange)="kadech_men_kaaba.set(+$event)" />
+  </div>
+
+  <div class="mb-3">
+    <label for="tva" class="form-label">TVA (%)</label>
+
+    <input id="tva" type="number" min="0" class="form-control" [ngModel]="tva()" (ngModelChange)="tva.set(+$event)" />
+  </div>
+
+  <hr />
+
+  <div class="d-flex flex-row justify-content-around bd-highlight mb-3">
+    <!-- <p>Prix Unitaire TTC : {{ soum_kaaba_mtaxya() | number:'1.2-2' }}</p> -->
+    <!-- <p>Total TTC : {{ soum_mellekher()   }}</p> -->
+    <div class="p-2 bd-highlight border border-4">Prix Unitaire TTC : {{ soum_kaaba_mtaxya() | number:'1.2-2' }}</div>
+    <div class="p-2 bd-highlight border border-4">Total TTC : {{ soum_mellekher() | number:'1.2-2' }}</div>
+    <div class="p-2 bd-highlight border border-4">Remise : {{ rimise() * 100 }} %</div>
+  </div>
+</div>

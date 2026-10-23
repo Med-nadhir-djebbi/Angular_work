@@ -14,6 +14,7 @@ import { DetailsCvComponent } from "./cv/details-cv/details-cv.component";
 import { RhComponent } from "./optimizationPattern/rh/rh.component";
 import { RainbowComponent } from "./components/rainbow/rainbow.component";
 import { NewTodoComponent } from "./new-todo/new-todo.component";
+import { TtcCalculatorComponent } from "./components/ttc-calculator/ttc-calculator.component";
 
 const routes: Route[] = [
   { path: "login", component: LoginComponent },
@@ -30,6 +31,7 @@ const routes: Route[] = [
   },
   { path: "rainbow", component: RainbowComponent },
   { path: "new-todo", component: NewTodoComponent },
+  { path: "ttc", component: TtcCalculatorComponent},
   {
     path: "admin", component: AdminComponent,
     children: [
