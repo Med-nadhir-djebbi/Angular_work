@@ -1,0 +1,46 @@
+<div class="todo-container container mt-4">
+  <h2 class="mb-4">Todo Board</h2>
+
+  <form class="todo-form" (ngSubmit)="addTodo()">
+    <input name="name" placeholder="Task name" required [ngModel]="name()" (ngModelChange)="name.set($event)" />
+
+    <input name="content" placeholder="Task description" [ngModel]="content()" (ngModelChange)="content.set($event)">
+
+    <button type="submit" class="btn btn-secondary">Add Task</button>
+  </form>
+
+  <div class="board">
+    @for (status of statuses; track status.id) {
+    <section class="column" [style.border-color]="status.color">
+      <h2 [style.border-color]="status.color">
+        {{ status.label }}
+        <span>({{ todosByStatus()[status.id].length }})</span>
+      </h2>
+
+      @for (todo of todosByStatus()[status.id]; track todo.id) {
+      <article class="todo-card">
+        <h3>{{ todo.name }}</h3>
+        <p>{{ todo.content || 'No description' }}</p>
+
+        <label [for]="'status-' + todo.id"><b>Status</b></label>
+
+        <select [id]="'status-' + todo.id" [name]="'status-' + todo.id" [ngModel]="todo.statusId" class="form-select form-select-sm"
+          (ngModelChange)="changeStatus(todo.id, $event)">
+          @for (option of statuses; track option.id) {
+          <option [value]="option.id">
+            {{ option.label }}
+          </option>
+          }
+        </select>
+
+        <button type="button" (click)="deleteTodo(todo.id)"  class="btn btn-danger">
+          Delete
+        </button>
+      </article>
+      } @empty {
+      <p class="empty-message">No tasks yet.</p>
+      }
+    </section>
+    }
+  </div>
+</div>

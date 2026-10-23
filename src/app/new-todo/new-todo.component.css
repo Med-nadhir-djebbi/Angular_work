@@ -1,0 +1,46 @@
+.todo-container {
+  padding: 1.5rem;
+}
+
+.todo-form {
+  display: flex ;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.column {
+  padding: 1rem;
+  border-radius: 8px;
+  background: #f1f5f9;
+  min-width: 0;
+}
+
+.column h2 {
+  border-bottom: 3px solid;
+  padding-bottom: 0.75rem;
+}
+
+.todo-card {
+  background: white;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.todo-card button {
+  margin-top: 0.75rem;
+}
+
+.empty-message {
+  color: #64748b;
+  font-style: italic;
+}
