@@ -26,6 +26,7 @@
         <a class="nav-link" [routerLink]="['login']" routerLinkActive="active text-primary">Login</a>
         }
         @if (authService.isAuthenticated()) {
+        <span class="nav-link">{{ authService.user()?.email }}</span>
         <a class="nav-link" (click)="logout()">Logout</a>
         }
       </div>
