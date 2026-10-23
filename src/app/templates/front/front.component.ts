@@ -7,7 +7,7 @@ import { RainbowDirective } from '../../directives/rainbow.directive';
     templateUrl: './front.component.html',
     styleUrls: ['./front.component.css'],
     changeDetection: ChangeDetectionStrategy.Eager,
-    imports: [RouterOutlet, RainbowDirective]
+    imports: [RouterOutlet]
 })
 export class FrontComponent {
 
